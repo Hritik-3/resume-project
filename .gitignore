@@ -1,0 +1,20 @@
+# Node
+node_modules/
+dist/
+.angular/
+
+# Java
+target/
+*.log
+*.class
+
+# IDE
+.vscode/
+.idea/
+*.iml
+
+# OS
+.DS_Store
+
+# Env
+.env

@@ -1,0 +1,113 @@
+<div class="container mt-4">
+
+  <!-- Page Title -->
+  <h4 class="fw-bold mb-4 text-dark">
+    <i class="bi bi-folder2-open me-2"></i>
+    All Resumes
+  </h4>
+
+  <!-- Empty State -->
+  <div *ngIf="resumes.length === 0" class="text-center mt-5">
+    <i class="bi bi-folder-x fs-1 text-muted"></i>
+    <p class="mt-2 text-muted">No resumes uploaded yet</p>
+  </div>
+
+  <!-- Table Card -->
+  <div *ngIf="resumes.length > 0" class="card shadow-sm p-3">
+
+    <div class="table-responsive">
+
+      <table class="table table-hover align-middle mb-0">
+
+        <thead class="table-dark">
+          <tr>
+            <th>File</th>
+            <th>Size</th>
+            <th>Uploaded</th>
+            <th class="text-center">Actions</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <tr *ngFor="let r of resumes">
+
+            <!-- FILE -->
+            <td>
+              <div class="d-flex align-items-center gap-2">
+
+                <!-- File Type Badge -->
+                <span *ngIf="r.fileType === 'application/pdf'"
+                      class="badge bg-danger">PDF</span>
+
+                <span *ngIf="r.fileType === 'application/msword'"
+                      class="badge bg-primary">DOC</span>
+
+                <span *ngIf="r.fileType === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'"
+                      class="badge bg-info text-dark">DOCX</span>
+
+                <!-- File Name -->
+                <span class="fw-semibold">{{ r.fileName }}</span>
+
+              </div>
+            </td>
+
+            <!-- SIZE -->
+            <td class="text-muted">
+            {{ formatSize(r.fileSize) }}
+            </td>
+
+            <!-- DATE -->
+            <td class="text-muted">
+              {{ r.uploadedAt | date:'medium' }}
+            </td>
+
+            <!-- ACTIONS -->
+            <td class="text-center">
+
+              <div class="d-flex flex-column align-items-center gap-2">
+
+                <!-- Preview -->
+                <span [title]="r.fileType !== 'application/pdf' ? 'Preview only for PDF' : ''">
+
+                  <button class="btn btn-outline-info btn-sm w-100"
+                          (click)="preview(r.id)"
+                          [disabled]="r.fileType !== 'application/pdf'">
+
+                    <i class="bi bi-eye me-1"></i>
+                    Preview
+
+                  </button>
+
+                </span>
+
+                <!-- Download + Delete -->
+                <div class="d-flex gap-2">
+
+                  <button class="btn btn-success btn-sm"
+                          (click)="download(r.id)">
+                    <i class="bi bi-download"></i>
+                  </button>
+
+                  <button class="btn btn-danger btn-sm"
+                          (click)="delete(r.id)">
+                    <i class="bi bi-trash"></i>
+                  </button>
+
+                </div>
+
+              </div>
+
+            </td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+</div>

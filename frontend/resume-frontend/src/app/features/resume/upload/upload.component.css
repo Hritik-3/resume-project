@@ -1,0 +1,27 @@
+.upload-box {
+  border: 2px dashed #cbd5e1;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+  background: #f8fafc;
+}
+
+.upload-box:hover {
+  border-color: #2563eb;
+  background: #eff6ff;
+}
+
+.upload-box.dragging {
+  border-color: #2563eb;
+  background: #dbeafe;
+}
+
+.file-preview {
+  background: #e0f2fe;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+.card {
+  border-radius: 14px;
+}

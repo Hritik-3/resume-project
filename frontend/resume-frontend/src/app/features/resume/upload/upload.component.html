@@ -1,0 +1,83 @@
+<div class="container mt-4">
+
+  <h4 class="fw-bold mb-3 text-dark">
+    <i class="bi bi-cloud-upload me-2"></i>
+    Upload Resume
+  </h4>
+
+  <!-- Toast -->
+  <div *ngIf="showToast"
+       class="toast-container position-fixed top-0 end-0 p-3">
+
+    <div class="toast show text-white shadow"
+         [ngClass]="toastType === 'success' ? 'bg-success' : 'bg-danger'">
+
+      <div class="toast-body">
+        {{ toastMessage }}
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Card -->
+  <div class="card shadow-sm p-4">
+
+    <!-- Upload Box -->
+    <div class="upload-box text-center p-4 mb-3"
+         [ngClass]="{'dragging': isDragging}"
+         (click)="fileInput.click()"
+         (dragover)="onDragOver($event)"
+         (dragleave)="onDragLeave($event)"
+         (drop)="onDrop($event)">
+
+      <div class="fs-1 text-primary mb-2">
+        <i class="bi bi-cloud-arrow-up"></i>
+      </div>
+
+      <p class="fw-semibold mb-1">Drag & Drop your resume</p>
+      <small class="text-muted">or click to browse</small>
+
+      <input #fileInput type="file" hidden (change)="onFileSelected($event)" />
+    </div>
+
+    <!-- Selected File -->
+    <div *ngIf="fileName"
+         class="file-preview d-flex align-items-center justify-content-between p-2 mb-3">
+
+      <div>
+        <i class="bi bi-file-earmark-text text-primary me-2"></i>
+        {{ fileName }}
+      </div>
+
+      <button class="btn btn-sm btn-outline-danger"
+              (click)="resetForm()">
+        <i class="bi bi-x"></i>
+      </button>
+
+    </div>
+
+    <!-- Error -->
+    <div *ngIf="errorMessage" class="alert alert-danger">
+      {{ errorMessage }}
+    </div>
+
+    <!-- Upload Button -->
+    <button class="btn btn-primary w-100"
+            (click)="upload()"
+            [disabled]="isUploading || !isValidFile">
+
+      <span *ngIf="!isUploading">
+        <i class="bi bi-upload me-2"></i>
+        Upload Resume
+      </span>
+
+      <span *ngIf="isUploading">
+        <span class="spinner-border spinner-border-sm me-2"></span>
+        Uploading...
+      </span>
+
+    </button>
+
+  </div>
+
+</div>

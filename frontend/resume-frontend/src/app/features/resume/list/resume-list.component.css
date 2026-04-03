@@ -1,0 +1,30 @@
+.card {
+  border-radius: 12px;
+}
+
+.table th {
+  font-size: 14px;
+}
+
+.table td {
+  font-size: 14px;
+}
+
+.table-hover tbody tr:hover {
+  background-color: #f8fafc;
+}
+
+/* Buttons */
+button {
+  transition: 0.2s;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+/* Badges */
+.badge {
+  font-size: 10px;
+  padding: 5px 7px;
+}

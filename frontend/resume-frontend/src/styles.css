@@ -1,0 +1,28 @@
+@import "bootstrap/dist/css/bootstrap.min.css";
+
+.navbar-custom {
+  background-color: #0d3b66;  /* 🔥 dark blue */
+}
+
+/* 🌍 Global background */
+body {
+  background-color: #f4f6f9;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* 🔥 Container width */
+.container {
+  max-width: 1100px;
+}
+
+/* 🎯 Card styling */
+.card {
+  border-radius: 10px;
+  border: none;
+}
+
+/* Table polish */
+.table {
+  margin-bottom: 0;
+}
