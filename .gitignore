@@ -18,3 +18,7 @@ target/
 
 # Env
 .env
+
+# Ignore uploaded files
+uploads/*
+!uploads/.gitkeep
