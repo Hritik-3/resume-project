@@ -20,7 +20,7 @@ services:
     environment:
       - SPRING_PROFILES_ACTIVE=docker
     volumes:
-      - ~/workspace/docs/resume:/app/uploads
+      - ./uploads:/app/uploads   # ✅ FIXED
 
   frontend:
     build: ./frontend/resume-frontend
