@@ -1,27 +1,21 @@
-.upload-box {
-  border: 2px dashed #cbd5e1;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: 0.3s;
-  background: #f8fafc;
-}
-
-.upload-box:hover {
-  border-color: #2563eb;
-  background: #eff6ff;
-}
-
-.upload-box.dragging {
-  border-color: #2563eb;
-  background: #dbeafe;
-}
-
-.file-preview {
-  background: #e0f2fe;
-  border-radius: 8px;
+/* 🔥 Toast BELOW NAVBAR (Full Width Bar) */
+.toast-bar {
+  width: 100%;
+  padding: 12px;
+  text-align: center;
   font-weight: 500;
+  border-radius: 6px;
+  margin-bottom: 15px;
 }
 
-.card {
-  border-radius: 14px;
+/* Success */
+.toast-bar.success {
+  background-color: #198754;
+  color: white;
+}
+
+/* Error */
+.toast-bar.error {
+  background-color: #dc3545;
+  color: white;
 }

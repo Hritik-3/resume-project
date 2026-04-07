@@ -1,23 +1,18 @@
 <div class="container mt-4">
 
+  <!-- 🔥 Toast BELOW NAVBAR -->
+  <div *ngIf="showToast"
+       class="toast-bar"
+       [ngClass]="toastType === 'success' ? 'success' : 'error'">
+
+    {{ toastMessage }}
+
+  </div>
+
   <h4 class="fw-bold mb-3 text-dark">
     <i class="bi bi-cloud-upload me-2"></i>
     Upload Resume
   </h4>
-
-  <!-- Toast -->
-  <div *ngIf="showToast"
-       class="toast-container position-fixed top-0 end-0 p-3">
-
-    <div class="toast show text-white shadow"
-         [ngClass]="toastType === 'success' ? 'bg-success' : 'bg-danger'">
-
-      <div class="toast-body">
-        {{ toastMessage }}
-      </div>
-
-    </div>
-  </div>
 
   <!-- Card -->
   <div class="card shadow-sm p-4">
